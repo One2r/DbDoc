@@ -9,7 +9,8 @@ type MainController struct {
 }
 
 func (c *MainController) Get() {
-	c.Data["Website"] = "beego.me"
+	c.Data["Appname"] = beego.AppConfig.String("appname")
+	c.Data["Appver"] = beego.AppConfig.String("appver")
 	c.Data["Email"] = "astaxie@gmail.com"
 	c.TplName = "index.tpl"
 }
