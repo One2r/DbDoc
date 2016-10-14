@@ -13,13 +13,24 @@
                 <span class="menu-text"> 控制台 </span>
             </a>
         </li>
-
+        {{range .DbGroup}}
+         <li>
+            <a href="#" class="dropdown-toggle">
+                <i class="icon-folder-close-alt"></i>
+                <span class="menu-text">
+                    {{ .GroupName }}
+                    <span class="badge badge-primary ">5</span>
+                </span>
+                <b class="arrow icon-angle-down"></b>
+            </a>
+        </li>
+        {{end}}
         <li>
             <a href="#" class="dropdown-toggle">
                 <i class="icon-folder-close-alt"></i>
 
                 <span class="menu-text">
-                    其他页面
+                    未分组
                     <span class="badge badge-primary ">5</span>
                 </span>
 

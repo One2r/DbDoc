@@ -1,6 +1,8 @@
 package controllers
 
 import (
+	"DbDoc/models"
+
 	"github.com/astaxie/beego"
 )
 
@@ -8,8 +10,14 @@ type MainController struct {
 	beego.Controller
 }
 
-func (c *MainController) Get() {
-	c.Data["Appname"] = beego.AppConfig.String("appname")
-	c.Data["Appver"] = beego.AppConfig.String("appver")
-	c.TplName = "index.tpl"
+func (this *MainController) Get() {
+	db_group, err := models.GetGroups()
+	if err != nil {
+		this.Abort("500")
+	}
+	this.Data["DbGroup"] = db_group
+
+	this.Data["Appname"] = beego.AppConfig.String("appname")
+	this.Data["Appver"] = beego.AppConfig.String("appver")
+	this.TplName = "index.tpl"
 }
