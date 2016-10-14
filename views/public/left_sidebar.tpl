@@ -14,12 +14,12 @@
             </a>
         </li>
         {{range .DbGroup}}
-         <li>
+         <li data-gid={{ .group_id }}>
             <a href="#" class="dropdown-toggle">
                 <i class="icon-folder-close-alt"></i>
                 <span class="menu-text">
-                    {{ .GroupName }}
-                    <span class="badge badge-primary ">5</span>
+                    {{ .group_name }}
+                    <span class="badge badge-primary ">{{ .db_num }}</span>
                 </span>
                 <b class="arrow icon-angle-down"></b>
             </a>

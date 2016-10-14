@@ -11,7 +11,7 @@ type MainController struct {
 }
 
 func (this *MainController) Get() {
-	db_group, err := models.GetGroups()
+	db_group, err := models.GetStatByGroups()
 	if err != nil {
 		this.Abort("500")
 	}

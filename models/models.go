@@ -16,9 +16,12 @@ func init() {
 }
 
 //获取数据库分组
-func GetGroups() (db_group []DbGroup, err error) {
+func GetStatByGroups() (db_group []orm.Params, err error) {
 	o := orm.NewOrm()
-	_, err = o.Raw("SELECT * FROM db_group;").QueryRows(&db_group)
+	_, err = o.Raw(`select g.*,count(c.db_id) as db_num 
+					from db_conn c 
+					inner join db_group g on c.db_group = g.group_id 
+					group by g.group_id;`).Values(&db_group)
 	if err != nil {
 		logs.Critical(err)
 	}
