@@ -600,6 +600,8 @@
         <script src="static/js/ace-elements.min.js"></script>
         <script src="static/js/ace.min.js"></script>
 
+        <script src="static/js/business/db-doc.js"></script>
+
         <!-- inline scripts related to this page -->
 
         <script type="text/javascript">

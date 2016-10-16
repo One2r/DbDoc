@@ -27,3 +27,16 @@ func GetStatByGroups() (db_group []orm.Params, err error) {
 	}
 	return
 }
+
+//根据分组id获取分组下数据库连接实例
+func GetDbByGid(gid int) (db []orm.Params,err error) {
+	o := orm.NewOrm()
+	_, err = o.Raw(`select db_id,db_name 
+					from db_conn  
+					where db_group	=	?
+					`,gid).Values(&db)
+	if err != nil {
+		logs.Critical(err)
+	}
+	return				
+}

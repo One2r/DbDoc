@@ -23,6 +23,8 @@
                 </span>
                 <b class="arrow icon-angle-down"></b>
             </a>
+            <ul class="submenu">
+            </ul>
         </li>
         {{end}}
         <li>
