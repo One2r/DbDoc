@@ -6,6 +6,6 @@ import (
 )
 
 func init() {
-    beego.Router("/", &controllers.MainController{})
-	beego.Router("/ajax/GetDbByGid", &controllers.AjaxController{},"Get:GetDbByGid")
+	beego.Router("/", &controllers.MainController{})
+	beego.Router("/ajax/GetDbByGid", &controllers.AjaxController{}, "Get:GetDbByGid")
 }
