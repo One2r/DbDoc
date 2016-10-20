@@ -5,7 +5,8 @@ $(".nav-list li").click(function(){
     if(!gid){
         return true;
     }
-    var lis = $(this).find("ul.submenu").children();
+    var submenu = $(this).find("ul.submenu");
+    var lis = submenu.children();
     if(lis.lenght){
         return true;
     }
@@ -16,7 +17,16 @@ $(".nav-list li").click(function(){
         data:{"gid":gid},
         success:function(result){
             if(result.Status == 1 && result.Data){
-                console.log(result);
+                var li_str = "";
+                for (var i in result.Data) {
+                  li_str += '<li> <a href="#"> <i class="icon-double-angle-right"></i>' 
+                            + result.Data[i]['db_name']
+                            + ' </a> </li>';
+                }
+                if ( li_str !== ""){
+                  submenu.html(li_str);
+                  return true;
+                }
             }else{
                 console.log(1)
             }
