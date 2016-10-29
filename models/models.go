@@ -25,7 +25,18 @@ func GetStatByGroups() (db_group []orm.Params, err error) {
 	if err != nil {
 		logs.Critical(err)
 	}
-	return
+	return db_group,err
+}
+
+//添加数据库分组
+func AddGroup(groupName string ) (gid int64, err error) {
+	o := orm.NewOrm()
+	res, err := o.Raw(`insert into db_group ("group_name") values(?);`, groupName).Exec()
+	if err != nil {
+		logs.Critical(err)
+	}
+	gid,_ = res.LastInsertId()
+	return gid, err
 }
 
 //根据分组id获取分组下数据库连接实例
@@ -38,5 +49,5 @@ func GetDbByGid(gid int) (db []orm.Params, err error) {
 	if err != nil {
 		logs.Critical(err)
 	}
-	return
+	return db,err
 }

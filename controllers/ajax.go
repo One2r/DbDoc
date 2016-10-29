@@ -34,3 +34,21 @@ func (this *AjaxController) GetDbByGid() {
     this.Data["json"] = &return_data
     this.ServeJSON()
 }
+
+func (this *AjaxController) AddGroup() {
+	var return_data AjaxReturn
+
+	groupName	:= this.GetString("groupName")	
+	if(groupName == ""){
+		return_data.Msg	=	"参数错误！"
+	}else{
+		gid,err := models.AddGroup(groupName)
+		if err != nil {
+			this.Abort("500")
+		}
+		return_data.Data = gid
+		return_data.Status = 1
+	}
+    this.Data["json"] = &return_data
+    this.ServeJSON()
+}
