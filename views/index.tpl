@@ -62,12 +62,12 @@
                                                         <div class="form-group">
                                                             <label for="form-field-1" class="col-sm-3 control-label no-padding-right">分组名</label>
                                                             <div class="col-sm-9">
-                                                                <input type="text" class="col-xs-10 col-sm-5" id="groupName">
+                                                                <input type="text" class="col-xs-10 col-sm-5" name="groupName" id="groupName">
                                                             </div>
                                                         </div>
                                                         <div class="clearfix form-actions">
                                                             <div class="col-md-offset-3 col-md-9">
-                                                                <button type="button" class="btn btn-info">
+                                                                <button type="button" class="btn btn-info btn-save-group">
                                                                     <i class="icon-ok bigger-110"></i>
                                                                     提交
                                                                 </button>
@@ -80,7 +80,6 @@
                                                         </div>
                                                     </form>
                                                 </div>
-
                                                 <div class="tab-pane" id="add-db">
                                                     <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
                                                 </div>
@@ -101,22 +100,17 @@
 
         <!-- basic scripts -->
 
-        <!--[if IE]>
-        <script src="static/js/jquery-1.10.2.min.js"></script>
-        <![endif]-->
-        <!--[if !IE]> --> 
         <script src="static/js/jquery-2.0.3.min.js"></script>
-        <!-- <![endif]-->
         <script type="text/javascript">
             if("ontouchend" in document) document.write("<script src='static/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
         </script>
 
         <script src="static/js/bootstrap.min.js"></script>
-        <script src="static/js/typeahead-bs2.min.js"></script>
         <script src="static/js/ace-elements.min.js"></script>
         <script src="static/js/ace.min.js"></script>
         <script src="static/js/business/db-doc.js"></script>
 
+         <script src="static/js/artDialog/dialog-min.js"></script>
         <!-- inline scripts related to this page -->
 </body>
 </html>
