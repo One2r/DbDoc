@@ -13,7 +13,7 @@
                 <span class="menu-text"> 控制台 </span>
             </a>
         </li>
-        {{range .DbGroup}}
+        {{range .DbGroupStatis}}
          <li data-gid={{ .group_id }}>
             <a href="#" class="dropdown-toggle">
                 <i class="icon-folder-close-alt"></i>

@@ -84,7 +84,76 @@
                                                     </form>
                                                 </div>
                                                 <div class="tab-pane" id="add-db">
-                                                    <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
+                                                    <form class="form-horizontal" role="form">
+                                                        <div class="form-group">
+                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">连接名</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" class="col-xs-10 col-sm-5" name="db_title" id="db_title">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">所属分组</label>
+                                                            <div class="col-sm-9">
+                                                                <select class="col-xs-10 col-sm-5" name="db_group" id="db_group">
+                                                                {{range .AllDbGroup}}
+                                                                    <option value="{{ .group_id}}">{{ .group_name }}</option>
+                                                                {{end}}
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">数据库类型</label>
+                                                            <div class="col-sm-9">
+                                                                <select class="col-xs-10 col-sm-5" id="db_type" name="db_type">
+                                                                    <option value="mysql">MySQL</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">IP</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" class="col-xs-10 col-sm-5" name="db_host" id="db_host">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">端口</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" class="col-xs-10 col-sm-5" name="db_port" id="db_port">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">数据库名</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" class="col-xs-10 col-sm-5" name="db_name" id="db_name">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">用户名</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" class="col-xs-10 col-sm-5" name="db_username" id="db_username">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">密码</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="password" class="col-xs-10 col-sm-5" name="db_password" id="db_password">
+                                                            </div>
+                                                        </div>    
+
+                                                        <div class="clearfix form-actions">
+                                                            <div class="col-md-offset-3 col-md-9">
+                                                                <button type="button" class="btn btn-info btn-save-db-conn">
+                                                                    <i class="icon-ok bigger-110"></i>
+                                                                    提交
+                                                                </button>
+                                                                &nbsp; &nbsp; &nbsp;
+                                                                <button type="reset" class="btn">
+                                                                    <i class="icon-undo bigger-110"></i>
+                                                                    取消
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>

@@ -15,13 +15,23 @@ func init() {
 	orm.RegisterModel(new(DbGroup))
 }
 
-//获取数据库分组
-func GetStatByGroups() (db_group []orm.Params, err error) {
+//获取数据库分组统计
+func GetStatisByGroups() (db_group []orm.Params, err error) {
 	o := orm.NewOrm()
 	_, err = o.Raw(`select g.*,count(c.db_id) as db_num 
 					from db_conn c 
 					inner join db_group g on c.db_group = g.group_id 
 					group by g.group_id;`).Values(&db_group)
+	if err != nil {
+		logs.Critical(err)
+	}
+	return db_group,err
+}
+
+//获取所有数据库分组
+func GetAllGroups() (db_group []orm.Params, err error) {
+	o := orm.NewOrm()
+	_, err = o.Raw(`select g.* from db_group g;`).Values(&db_group)
 	if err != nil {
 		logs.Critical(err)
 	}
