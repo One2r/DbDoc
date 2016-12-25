@@ -42,17 +42,20 @@
                                     </div>
                                 </div>
                                 <div class="row">
+                                    <h3 class="header smaller lighter purple">
+                                        快捷操作
+                                    </h3>
                                     <div class="col-sx-12">
                                         <div class="tabbable">
                                             <ul id="myTab" class="nav nav-tabs">
                                                 <li class="active">
                                                     <a href="#add-group" data-toggle="tab">
-                                                        数据库分组
+                                                        添加数据库分组
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="#add-db" data-toggle="tab">
-                                                        数据库连接
+                                                        添加数据库连接
                                                     </a>
                                                 </li>
                                             </ul>
@@ -83,7 +86,6 @@
                                                 <div class="tab-pane" id="add-db">
                                                     <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
                                                 </div>
-                                                
                                             </div>
                                         </div>
                                     </div>
