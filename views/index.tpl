@@ -37,7 +37,7 @@
                                     <div class="alert alert-block alert-success">
                                         欢迎使用
                                         <strong class="green">
-                                            {{ .Appname }} <small>v{{ .Appver }}</small>数据库字典管理系统。
+                                            {{ .Appname }} <small>v{{ .Appver }}</small>数据库字典查看系统。
                                         </strong>	
                                     </div>
                                 </div>
