@@ -3,6 +3,7 @@
     <head>
         <title>{{ .Appname }}</title>
         {{ template "public/header.tpl" }}
+        <link rel="stylesheet" href="static/js/jQuery.ValidationEngine/css/validationEngine.jquery.css" type="text/css"/>
     </head>
 
     <body>
@@ -63,7 +64,7 @@
                                                 <div class="tab-pane in active" id="add-group">
                                                     <form class="form-horizontal" role="form">
                                                         <div class="form-group">
-                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">分组名</label>
+                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">分组名*</label>
                                                             <div class="col-sm-9">
                                                                 <input type="text" class="col-xs-10 col-sm-5" name="groupName" id="groupName">
                                                             </div>
@@ -84,17 +85,17 @@
                                                     </form>
                                                 </div>
                                                 <div class="tab-pane" id="add-db">
-                                                    <form class="form-horizontal" role="form">
+                                                    <form id="add-db-form" class="form-horizontal" role="form">
                                                         <div class="form-group">
-                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">连接名</label>
+                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">连接名*</label>
                                                             <div class="col-sm-9">
-                                                                <input type="text" class="col-xs-10 col-sm-5" name="db_title" id="db_title">
+                                                                <input type="text" class="col-xs-10 col-sm-5 validate[required]" name="db_title" id="db_title" data-errormessage-value-missing="连接名必填!" >
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">所属分组</label>
+                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">所属分组*</label>
                                                             <div class="col-sm-9">
-                                                                <select class="col-xs-10 col-sm-5" name="db_group" id="db_group">
+                                                                <select class="col-xs-10 col-sm-5 validate[required]" name="db_group" id="db_group" data-errormessage-value-missing="分组必填!" >
                                                                 {{range .AllDbGroup}}
                                                                     <option value="{{ .group_id}}">{{ .group_name }}</option>
                                                                 {{end}}
@@ -102,41 +103,41 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">数据库类型</label>
+                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">数据库类型*</label>
                                                             <div class="col-sm-9">
-                                                                <select class="col-xs-10 col-sm-5" id="db_type" name="db_type">
+                                                                <select class="col-xs-10 col-sm-5 validate[required]" id="db_type" name="db_type" data-errormessage-value-missing="数据库类型必填!" >
                                                                     <option value="mysql">MySQL</option>
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">IP</label>
+                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">主机名(或IP地址)*</label>
                                                             <div class="col-sm-9">
-                                                                <input type="text" class="col-xs-10 col-sm-5" name="db_host" id="db_host">
+                                                                <input type="text" class="col-xs-10 col-sm-5 validate[required]" name="db_host" id="db_host" data-errormessage-value-missing="主机名(或IP地址)必填!" >
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">端口</label>
+                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">端口*</label>
                                                             <div class="col-sm-9">
-                                                                <input type="text" class="col-xs-10 col-sm-5" name="db_port" id="db_port">
+                                                                <input type="text" class="col-xs-10 col-sm-5 validate[required]" name="db_port" id="db_port" data-errormessage-value-missing="端口必填!" >
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">数据库名</label>
+                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">数据库名*</label>
                                                             <div class="col-sm-9">
-                                                                <input type="text" class="col-xs-10 col-sm-5" name="db_name" id="db_name">
+                                                                <input type="text" class="col-xs-10 col-sm-5 validate[required]" name="db_name" id="db_name" data-errormessage-value-missing="数据库名必填!" >
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">用户名</label>
+                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">登录用户名*</label>
                                                             <div class="col-sm-9">
-                                                                <input type="text" class="col-xs-10 col-sm-5" name="db_username" id="db_username">
+                                                                <input type="text" class="col-xs-10 col-sm-5 validate[required]" name="db_username" id="db_username" data-errormessage-value-missing="登录用户名必填!" >
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">密码</label>
+                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">密码*</label>
                                                             <div class="col-sm-9">
-                                                                <input type="password" class="col-xs-10 col-sm-5" name="db_password" id="db_password">
+                                                                <input type="password" class="col-xs-10 col-sm-5 validate[required]" name="db_password" id="db_password" data-errormessage-value-missing="密码必填!" >
                                                             </div>
                                                         </div>    
 
@@ -181,7 +182,9 @@
         <script src="static/js/ace.min.js"></script>
         <script src="static/js/business/db-doc.js"></script>
 
-         <script src="static/js/artDialog/dialog-min.js"></script>
+        <script src="static/js/artDialog/dialog-min.js"></script>
+        <script src="static/js/jQuery.ValidationEngine/js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
+        <script src="static/js/jQuery.ValidationEngine/js/languages/jquery.validationEngine-zh_CN.js" type="text/javascript" charset="utf-8"></script>
         <!-- inline scripts related to this page -->
 </body>
 </html>
