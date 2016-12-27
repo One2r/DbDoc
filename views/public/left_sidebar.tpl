@@ -27,55 +27,6 @@
             </ul>
         </li>
         {{end}}
-        <li>
-            <a href="#" class="dropdown-toggle">
-                <i class="icon-folder-close-alt"></i>
-
-                <span class="menu-text">
-                    未分组
-                    <span class="badge badge-primary ">5</span>
-                </span>
-
-                <b class="arrow icon-angle-down"></b>
-            </a>
-
-            <ul class="submenu">
-                <li>
-                    <a href="faq.html">
-                        <i class="icon-double-angle-right"></i>
-                        帮助
-                    </a>
-                </li>
-
-                <li>
-                    <a href="error-404.html">
-                        <i class="icon-double-angle-right"></i>
-                        404错误页面
-                    </a>
-                </li>
-
-                <li>
-                    <a href="error-500.html">
-                        <i class="icon-double-angle-right"></i>
-                        500错误页面
-                    </a>
-                </li>
-
-                <li>
-                    <a href="grid.html">
-                        <i class="icon-double-angle-right"></i>
-                        网格
-                    </a>
-                </li>
-
-                <li>
-                    <a href="blank.html">
-                        <i class="icon-double-angle-right"></i>
-                        空白页面
-                    </a>
-                </li>
-            </ul>
-        </li>
     </ul>
 
     <div class="sidebar-collapse" id="sidebar-collapse">
