@@ -30,7 +30,7 @@ $(".nav-list li").click(function(){
             }else{
                 dialog({
                     title: '提示',
-                    content: '系统错误，请稍候再试！',
+                    content: result.Msg?result.Msg:'系统错误，请稍候再试！',
                     cancelValue: '关闭',
                     cancel: function () {}
                 }).width(320).show();
@@ -67,11 +67,41 @@ $(".btn-save-group").click(function(){
             }else{
                  dialog({
                     title: '提示',
-                    content: '系统错误，请稍候再试！',
+                    content: result.Msg?result.Msg:'系统错误，请稍候再试！',
                     cancelValue: '关闭',
                     cancel: function () {}
                 }).width(320).show();
             }
         }
     });
+});
+
+$(".btn-save-db-conn").click(function(){
+    if($("#add-db-form").validationEngine("validate")){
+        var data = $("#add-db-form").serialize()
+        $.ajax({
+            url:"/ajax/AddDbConn",
+            type:"GET",
+            data:data,
+            success:function(result){
+                if(result.Status == 1 && result.Data){
+                    dialog({
+                        title: '提示',
+                        content: '添加成功！',
+                        cancelValue: '关闭',
+                        cancel: function () {
+                            window.location.href=window.location.href;
+                        }
+                    }).width(320).show();
+                }else{
+                    dialog({
+                        title: '提示',
+                        content: result.Msg?result.Msg:'系统错误，请稍候再试！',
+                        cancelValue: '关闭',
+                        cancel: function () {}
+                    }).width(320).show();
+                }
+            }
+        });
+    }
 });
