@@ -10,9 +10,22 @@ type DbGroup struct {
 	GroupName string
 }
 
+type DbConn struct {
+	Id		 	int `orm:pk;column(db_id)`
+	DbTitle		string
+	DbGroup	  	int
+	DbName    	string
+	DbHost		string
+	DbPort		int
+	DbUsername	string
+	DbPassword	string
+	DbType		string		 
+}
+
 func init() {
 	// 需要在init中注册定义的model
 	orm.RegisterModel(new(DbGroup))
+	orm.RegisterModel(new(DbConn))
 }
 
 //获取数据库分组统计
@@ -60,4 +73,14 @@ func GetDbByGid(gid int) (db []orm.Params, err error) {
 		logs.Critical(err)
 	}
 	return db,err
+}
+
+
+func InsertDbConn(conn DbConn) (id int64,err error){
+	o := orm.NewOrm()
+	id, err = o.Insert(&conn)
+	if err == nil {
+    	logs.Critical(err)
+	}
+	return id,err
 }
