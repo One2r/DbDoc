@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>{{ .Appname }}</title>
+        <title>控制台 - 数据库字典 - {{ .Appname }}</title>
         {{ template "public/header.tpl" }}
         <link rel="stylesheet" href="static/js/jQuery.ValidationEngine/css/validationEngine.jquery.css" type="text/css"/>
     </head>

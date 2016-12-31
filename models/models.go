@@ -65,7 +65,7 @@ func AddGroup(groupName string ) (gid int64, err error) {
 //根据分组id获取分组下数据库连接实例
 func GetDbByGid(gid int) (db []orm.Params, err error) {
 	o := orm.NewOrm()
-	_, err = o.Raw(`select db_id,db_name 
+	_, err = o.Raw(`select db_id,db_title 
 					from db_conn  
 					where db_group	=	?
 					`, gid).Values(&db)
@@ -83,4 +83,14 @@ func InsertDbConn(conn DbConn) (id int64,err error){
     	logs.Critical(err)
 	}
 	return id,err
+}
+
+//根据id获取一个数据连接信息
+func GetDbConnById(id int)(conn orm.Params,err error){
+	o := orm.NewOrm()
+	_, err = o.Raw(`select * from db_conn where db_id = ? `, id).Values(&conn)
+	if err != nil {
+		logs.Critical(err)
+	}
+	return conn,err
 }

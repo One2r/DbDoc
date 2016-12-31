@@ -19,8 +19,8 @@ $(".nav-list li").click(function(){
             if(result.Status == 1 && result.Data){
                 var li_str = "";
                 for (var i in result.Data) {
-                  li_str += '<li> <a href="#"> <i class="icon-double-angle-right"></i>' 
-                            + result.Data[i]['db_name']
+                  li_str += '<li> <a href="/getdb?id='+result.Data[i]['db_id']+'"> <i class="icon-double-angle-right"></i>' 
+                            + result.Data[i]['db_title']
                             + ' </a> </li>';
                 }
                 if ( li_str !== ""){
