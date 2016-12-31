@@ -38,8 +38,9 @@
                                     <div class="alert alert-block alert-success">
                                         欢迎使用
                                         <strong class="green">
-                                            {{ .Appname }} <small>v{{ .Appver }}</small>数据库字典查看系统。
-                                        </strong>	
+                                            {{ .Appname }} <small>v{{ .Appver }}</small>
+                                        </strong>
+                                        数据库字典查看系统。	
                                     </div>
                                 </div>
                                 <div class="row">
