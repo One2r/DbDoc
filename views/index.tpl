@@ -86,6 +86,7 @@
                                                     </form>
                                                 </div>
                                                 <div class="tab-pane" id="add-db">
+                                                {{ if .AllDbGroup}}
                                                     <form id="add-db-form" class="form-horizontal" role="form">
                                                         <div class="form-group">
                                                             <label for="form-field-1" class="col-sm-3 control-label no-padding-right">连接名*</label>
@@ -156,6 +157,9 @@
                                                             </div>
                                                         </div>
                                                     </form>
+                                                    {{else}}
+                                                    请先添加一个分组~
+                                                    {{end}}
                                                 </div>
                                             </div>
                                         </div>
