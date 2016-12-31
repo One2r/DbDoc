@@ -38,7 +38,9 @@ func (this *MainController) GetDb() {
 	db_conn,err := models.GetDbConnById(id);
 	if err != nil {
 		this.Abort("500")
+	} else if len(db_conn) == 0 {
+		this.Abort("404")
 	}
-	this.Data["Conn"] = db_conn
+	this.Data["Conn"] = db_conn[0]
 	this.TplName = "db.tpl"
 }

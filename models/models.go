@@ -86,7 +86,7 @@ func InsertDbConn(conn DbConn) (id int64,err error){
 }
 
 //根据id获取一个数据连接信息
-func GetDbConnById(id int)(conn orm.Params,err error){
+func GetDbConnById(id int)(conn []orm.Params,err error){
 	o := orm.NewOrm()
 	_, err = o.Raw(`select * from db_conn where db_id = ? `, id).Values(&conn)
 	if err != nil {
