@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"DbDoc/models"
+	"DbDoc/library"
 
 	"github.com/astaxie/beego"
 )
@@ -41,6 +42,13 @@ func (this *MainController) GetDb() {
 	} else if len(db_conn) == 0 {
 		this.Abort("404")
 	}
+		
+	db_table_info,err:=library.GetDb(db_conn[0])
+	if err != nil {
+		this.Abort("500")
+	}
+
+	this.Data["Tables"] = db_table_info
 	this.Data["Conn"] = db_conn[0]
 	this.TplName = "db.tpl"
 }

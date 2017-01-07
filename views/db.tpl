@@ -35,11 +35,68 @@
                             <div class="col-xs-12">
                                 <!-- PAGE CONTENT BEGINS -->
                                 <div class="row">
+                                    <div class="alert alert-block alert-success">
+                                        <p>
+                                        <label class="col-sm-2 control-label">主机名(或IP地址):</label>
+                                        {{.Conn.db_host}}
+                                        </p>
+                                        <p><label class="col-sm-2 control-label">数据库：</label>{{.Conn.db_name}}</p>
+                                        <p><label class="col-sm-2 control-label">表数：</label>{{.Tables|len}}</p>
+                                    </div>
+
                                     <h3 class="header smaller lighter purple">
-                                        基本信息
+                                        表结构信息
                                     </h3>
                                     <div class="col-sx-12">
-                                        
+                                        {{range .Tables}}
+                                            <h3 class="header smaller lighter blue">{{.TABLE_NAME}}
+                                            {{ if ne .TABLE_COMMENT ""}}
+                                                ({{.TABLE_COMMENT}})
+                                            {{ end }}
+                                            </h3>
+                                            <div class="table-responsive">
+											<table id="sample-table-1" class="table table-striped table-bordered table-hover">
+												<thead>
+													<tr>
+														<th style="width:20%">字段名</th>
+														<th style="width:20%">数据类型</th>
+														<th style="width:10%">默认值</th>
+														<th style="width:10%">允许非空</th>
+														<th style="width:10%">自动递增</th>
+														<th style="width:20%">备注</th>
+													</tr>
+												</thead>
+												<tbody>
+                                                    {{range .COLUMN}}
+													<tr>
+														<td>
+															{{ .COLUMN_NAME }}
+														</td>
+                                                        <td>
+                                                            {{ .COLUMN_TYPE}}
+                                                        </td>
+														<td>
+                                                            {{ .COLUMN_DEFAULT }}
+                                                        </td>
+														<td>
+                                                            {{ .IS_NULLABLE }}
+                                                        </td>
+														<td>
+															{{if eq .EXTRA "auto_increment"}}
+                                                            是
+                                                            {{else}}
+                                                            否
+                                                            {{end}}
+														</td>
+														<td>
+															{{ .COLUMN_COMMENT }}
+														</td>
+													</tr>
+                                                    {{end}}
+												</tbody>
+											</table>
+										</div>
+                                        {{end}}
                                     </div>
                                 </div>    
                             </div>
