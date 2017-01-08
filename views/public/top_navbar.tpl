@@ -29,7 +29,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#">
+                            <a href="https://github.com/One2r/DbDoc" target="_blank">
                                 <i class="icon-exclamation-sign "></i>
                                 关于
                             </a>
