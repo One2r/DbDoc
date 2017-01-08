@@ -52,3 +52,7 @@ func (this *MainController) GetDb() {
 	this.Data["Conn"] = db_conn[0]
 	this.TplName = "db.tpl"
 }
+
+func (this *MainController)  Groups() {
+		this.TplName = "groups.tpl"
+}

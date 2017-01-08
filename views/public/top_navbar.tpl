@@ -22,7 +22,7 @@
 
                     <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                         <li>
-                            <a href="#">
+                            <a href="./groups">
                                 <i class="icon-cog"></i>
                                 分组
                             </a>
