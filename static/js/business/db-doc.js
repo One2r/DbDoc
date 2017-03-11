@@ -105,3 +105,48 @@ $(".btn-save-db-conn").click(function(){
         });
     }
 });
+
+$(".edit-group").click(function(){
+    var groupId = $(this).data("gid");
+    var groupName = $(this).data("gname");
+    $("#group_"+groupId).find("#group_name").html('<input type="text" name="group_name" value="'+groupName+'" />');
+    $("#group_"+groupId).find(".btn-group-save").css("display","inline");
+})
+
+$(".btn-group-save").click(function(){
+    var groupId = $(this).data("gid");
+    var groupName = $("#group_"+groupId).find("input[name=group_name]").val();
+        if(groupName == ""){
+        dialog({
+            title: '提示',
+            content: '请输入分组名！',
+            cancelValue: '取消',
+            cancel: function () {}
+        }).width(320).show();
+        return false;
+    }
+    $.ajax({
+        url:"/ajax/UpdateGroup",
+        type:"GET",
+        data:{"groupId":groupId,"groupName":groupName},
+        success:function(result){
+            if(result.Status == 1 && result.Data){
+                dialog({
+                    title: '提示',
+                    content: '编辑成功！',
+                    cancelValue: '关闭',
+                    cancel: function () {
+                        window.location.href=window.location.href;
+                    }
+                }).width(320).show();
+            }else{
+                 dialog({
+                    title: '提示',
+                    content: result.Msg?result.Msg:'系统错误，请稍候再试！',
+                    cancelValue: '关闭',
+                    cancel: function () {}
+                }).width(320).show();
+            }
+        }
+    });
+})

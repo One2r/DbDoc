@@ -50,18 +50,19 @@
                                             </thead>
                                             <tbody>
                                                 {{range .DbGroupStatis}}
-                                                <tr>
+                                                <tr id="group_{{ .group_id}}">
                                                     <td>
                                                         {{ .group_id }}
                                                     </td>
-                                                    <td>
+                                                    <td id="group_name">
                                                         {{ .group_name}}
                                                     </td>
                                                     <td>
                                                         {{ .db_num}}
                                                     </td>
                                                     <td>
-                                                        编辑
+                                                        <a class="edit-group" data-gid={{ .group_id}} data-gname={{.group_name}} href="javascript:;">编辑</a>
+                                                       <a class="btn-group-save" style="display:none" data-gid={{ .group_id}} href="javascript:;">保存</a> 
                                                     </td>
                                                 </tr>
                                                 {{end}}

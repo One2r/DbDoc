@@ -62,6 +62,17 @@ func AddGroup(groupName string ) (gid int64, err error) {
 	return gid, err
 }
 
+//编辑数据库分组
+func UpdateGroup(Id int,groupName string ) (gid int64, err error) {
+	o := orm.NewOrm()
+	res, err := o.Raw(`update db_group set group_name = ? where group_id = ?`, groupName,Id).Exec()
+	if err != nil {
+		logs.Critical(err)
+	}
+	num,_ := res.RowsAffected()
+	return num, err
+}
+
 //根据分组id获取分组下数据库连接实例
 func GetDbByGid(gid int) (db []orm.Params, err error) {
 	o := orm.NewOrm()

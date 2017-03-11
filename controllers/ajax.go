@@ -56,6 +56,26 @@ func (this *AjaxController) AddGroup() {
     this.ServeJSON()
 }
 
+func (this *AjaxController) UpdateGroup(){
+	var return_data AjaxReturn
+
+	groupName	:= this.GetString("groupName")
+	Id,_	:= this.GetInt("groupId")
+	if(groupName == ""){
+		return_data.Msg	=	"参数错误！"
+	}else{
+		num,err := models.UpdateGroup(Id,groupName)
+		if err == nil {
+			return_data.Data = num
+			return_data.Status = 1
+		}else{
+			logs.Critical(err)
+		}
+	}
+    this.Data["json"] = &return_data
+    this.ServeJSON()
+}
+
 func (this *AjaxController) AddDbConn() {
 	var return_data AjaxReturn
 	valid := validation.Validation{}
