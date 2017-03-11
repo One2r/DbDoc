@@ -31,10 +31,7 @@ func init() {
 //获取数据库分组统计
 func GetStatisByGroups() (db_group []orm.Params, err error) {
 	o := orm.NewOrm()
-	_, err = o.Raw(`select g.*,count(c.db_id) as db_num 
-					from db_conn c 
-					inner join db_group g on c.db_group = g.group_id 
-					group by g.group_id;`).Values(&db_group)
+	_, err = o.Raw(`select * from v_group_db_statis order by db_num desc`).Values(&db_group)
 	if err != nil {
 		logs.Critical(err)
 	}
@@ -66,6 +63,16 @@ func AddGroup(groupName string ) (gid int64, err error) {
 func UpdateGroup(Id int,groupName string ) (gid int64, err error) {
 	o := orm.NewOrm()
 	res, err := o.Raw(`update db_group set group_name = ? where group_id = ?`, groupName,Id).Exec()
+	if err != nil {
+		logs.Critical(err)
+	}
+	num,_ := res.RowsAffected()
+	return num, err
+}
+
+func DeleteGroup(Id int) (gid int64, err error) {
+	o := orm.NewOrm()
+	res, err := o.Raw(`delete from db_group where group_id = ?`,Id).Exec()
 	if err != nil {
 		logs.Critical(err)
 	}

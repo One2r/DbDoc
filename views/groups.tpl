@@ -61,7 +61,11 @@
                                                         {{ .db_num}}
                                                     </td>
                                                     <td>
+                                                        {{ if eq .db_num "0" }}
+                                                         <a class="delete-group" data-gid={{ .group_id}} href="javascript:;">删除</a>
+                                                         {{end}}
                                                         <a class="edit-group" data-gid={{ .group_id}} data-gname={{.group_name}} href="javascript:;">编辑</a>
+                                                         
                                                        <a class="btn-group-save" style="display:none" data-gid={{ .group_id}} href="javascript:;">保存</a> 
                                                     </td>
                                                 </tr>

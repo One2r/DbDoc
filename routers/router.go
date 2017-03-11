@@ -13,5 +13,6 @@ func init() {
 	beego.Router("/ajax/GetDbByGid", &controllers.AjaxController{}, "Get:GetDbByGid")
 	beego.Router("/ajax/AddGroup", &controllers.AjaxController{}, "Get:AddGroup")
 	beego.Router("/ajax/UpdateGroup", &controllers.AjaxController{}, "Get:UpdateGroup")
+	beego.Router("/ajax/DeleteGroup", &controllers.AjaxController{}, "Get:DeleteGroup")
 	beego.Router("/ajax/AddDbConn", &controllers.AjaxController{}, "Get:AddDbConn")
 }

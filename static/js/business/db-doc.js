@@ -150,3 +150,31 @@ $(".btn-group-save").click(function(){
         }
     });
 })
+
+$(".delete-group").click(function(){
+    var groupId = $(this).data("gid");
+    $.ajax({
+        url:"/ajax/DeleteGroup",
+        type:"GET",
+        data:{"groupId":groupId},
+        success:function(result){
+            if(result.Status == 1 && result.Data){
+                dialog({
+                    title: '提示',
+                    content: '删除成功！',
+                    cancelValue: '关闭',
+                    cancel: function () {
+                        window.location.href=window.location.href;
+                    }
+                }).width(320).show();
+            }else{
+                 dialog({
+                    title: '提示',
+                    content: result.Msg?result.Msg:'系统错误，请稍候再试！',
+                    cancelValue: '关闭',
+                    cancel: function () {}
+                }).width(320).show();
+            }
+        }
+    });
+})
