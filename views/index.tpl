@@ -57,7 +57,7 @@
                                                 </li>
                                                 <li>
                                                     <a href="#add-db" data-toggle="tab">
-                                                        添加数据库连接
+                                                        添加数据库
                                                     </a>
                                                 </li>
                                             </ul>
@@ -79,7 +79,7 @@
                                                                 &nbsp; &nbsp; &nbsp;
                                                                 <button type="reset" class="btn">
                                                                     <i class="icon-undo bigger-110"></i>
-                                                                    取消
+                                                                    重置
                                                                 </button>
                                                             </div>
                                                         </div>
@@ -89,7 +89,7 @@
                                                 {{ if .AllDbGroup}}
                                                     <form id="add-db-form" class="form-horizontal" role="form">
                                                         <div class="form-group">
-                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">连接名*</label>
+                                                            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">名称*</label>
                                                             <div class="col-sm-9">
                                                                 <input type="text" class="col-xs-10 col-sm-5 validate[required]" name="db_title" id="db_title" data-errormessage-value-missing="连接名必填!" >
                                                             </div>
@@ -152,7 +152,7 @@
                                                                 &nbsp; &nbsp; &nbsp;
                                                                 <button type="reset" class="btn">
                                                                     <i class="icon-undo bigger-110"></i>
-                                                                    取消
+                                                                    重置
                                                                 </button>
                                                             </div>
                                                         </div>
