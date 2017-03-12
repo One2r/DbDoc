@@ -106,6 +106,36 @@ $(".btn-save-db-conn").click(function(){
     }
 });
 
+$(".btn-edit-db-conn").click(function(){
+    if($("#edit-db-form").validationEngine("validate")){
+        var data = $("#edit-db-form").serialize()
+        $.ajax({
+            url:"/ajax/UpdateDbConn",
+            type:"GET",
+            data:data,
+            success:function(result){
+                if(result.Status == 1 && result.Data){
+                    dialog({
+                        title: '提示',
+                        content: '添加成功！',
+                        cancelValue: '关闭',
+                        cancel: function () {
+                            window.location.href=window.location.href;
+                        }
+                    }).width(320).show();
+                }else{
+                    dialog({
+                        title: '提示',
+                        content: result.Msg?result.Msg:'系统错误，请稍候再试！',
+                        cancelValue: '关闭',
+                        cancel: function () {}
+                    }).width(320).show();
+                }
+            }
+        });
+    }
+});
+
 $(".edit-group").click(function(){
     var groupId = $(this).data("gid");
     var groupName = $(this).data("gname");

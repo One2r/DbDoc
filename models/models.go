@@ -97,10 +97,19 @@ func GetDbByGid(gid int) (db []orm.Params, err error) {
 func InsertDbConn(conn DbConn) (id int64,err error){
 	o := orm.NewOrm()
 	id, err = o.Insert(&conn)
-	if err == nil {
+	if err != nil {
     	logs.Critical(err)
 	}
 	return id,err
+}
+
+func UpdateDbConn(conn DbConn) (id int64,err error){
+	o := orm.NewOrm()
+	num, err := o.Update(&conn);
+	if err != nil {
+    	logs.Critical(err)
+	}
+	return num,err
 }
 
 //根据id获取一个数据连接信息

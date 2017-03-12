@@ -53,6 +53,28 @@ func (this *MainController) GetDb() {
 	this.TplName = "db.tpl"
 }
 
+func (this *MainController) EditDb() {
+	id,err	:= this.GetInt("id")	
+	if(id == 0 || err !=nil ){
+		this.Abort("404")
+	}
+	db_conn,err := models.GetDbConnById(id);
+	if err != nil {
+		this.Abort("500")
+	} else if len(db_conn) == 0 {
+		this.Abort("404")
+	}
+
+	db_all_group, err := models.GetAllGroups()
+	if err != nil {
+		this.Abort("500")
+	}
+	this.Data["AllDbGroup"] = db_all_group
+	
+	this.Data["Conn"] = db_conn[0]
+	this.TplName = "editdb.tpl"
+}
+
 func (this *MainController)  Groups() {
 		this.TplName = "groups.tpl"
 }
