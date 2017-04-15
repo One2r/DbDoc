@@ -19,7 +19,7 @@ $(".nav-list li").click(function(){
             if(result.Status == 1 && result.Data){
                 var li_str = "";
                 for (var i in result.Data) {
-                  li_str += '<li> <a href="/getdb?id='+result.Data[i]['db_id']+'"> <i class="icon-double-angle-right"></i>' 
+                  li_str += '<li> <a href="/getdb?id='+result.Data[i]['id']+'"> <i class="icon-double-angle-right"></i>' 
                             + result.Data[i]['db_title']
                             + ' </a> </li>';
                 }
@@ -117,7 +117,7 @@ $(".btn-edit-db-conn").click(function(){
                 if(result.Status == 1 && result.Data){
                     dialog({
                         title: '提示',
-                        content: '添加成功！',
+                        content: '更新成功！',
                         cancelValue: '关闭',
                         cancel: function () {
                             window.location.href=window.location.href;

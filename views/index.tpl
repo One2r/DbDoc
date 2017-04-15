@@ -99,7 +99,7 @@
                                                             <div class="col-sm-9">
                                                                 <select class="col-xs-10 col-sm-5 validate[required]" name="db_group" id="db_group" data-errormessage-value-missing="分组必填!" >
                                                                 {{range .AllDbGroup}}
-                                                                    <option value="{{ .group_id}}">{{ .group_name }}</option>
+                                                                    <option value="{{ .id}}">{{ .group_name }}</option>
                                                                 {{end}}
                                                                 </select>
                                                             </div>

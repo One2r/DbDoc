@@ -39,7 +39,7 @@
                                         <div class="tabbable">
                                             <div id="edit-db">
                                                 <form id="edit-db-form" class="form-horizontal" role="form">
-                                                    <input type="hidden" name="db_id" value="{{.Conn.db_id}}" />
+                                                    <input type="hidden" name="db_id" value="{{.Conn.id}}" />
                                                     <div class="form-group">
                                                         <label for="form-field-1" class="col-sm-3 control-label no-padding-right">名称*</label>
                                                         <div class="col-sm-9">
@@ -51,10 +51,10 @@
                                                         <div class="col-sm-9">
                                                             <select class="col-xs-10 col-sm-5 validate[required]" name="db_group" id="db_group" data-errormessage-value-missing="分组必填!" >
                                                             {{range .AllDbGroup}}
-                                                                {{if eq .group_id $.Conn.db_group}}
-                                                                <option value="{{ .group_id}}" selected="true">{{ .group_name }}</option>
+                                                                {{if eq .id $.Conn.db_group}}
+                                                                <option value="{{ .id}}" selected="true">{{ .group_name }}</option>
                                                                 {{else}}
-                                                                <option value="{{ .group_id}}">{{ .group_name }}</option>
+                                                                <option value="{{ .id}}">{{ .group_name }}</option>
                                                                 {{end}}
                                                             {{end}}
                                                             </select>
@@ -112,7 +112,7 @@
                                                                 提交
                                                             </button>
                                                             &nbsp; &nbsp; &nbsp;
-                                                            <a href="./getdb?id={{.Conn.db_id}}">
+                                                            <a href="./getdb?id={{.Conn.id}}">
                                                             <button type="button" class="btn">
                                                                 <i class="icon-share-alt"></i>
                                                                 取消

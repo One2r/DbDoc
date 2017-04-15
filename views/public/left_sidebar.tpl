@@ -15,7 +15,7 @@
         </li>
         {{range .DbGroupStatis}}
         {{ if gt .db_num "0" }}
-         <li data-gid={{ .group_id }}>
+         <li data-gid={{ .id }}>
             <a href="#" class="dropdown-toggle">
                 <i class="icon-folder-close-alt"></i>
                 <span class="menu-text">

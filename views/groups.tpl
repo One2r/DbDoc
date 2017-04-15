@@ -50,9 +50,9 @@
                                             </thead>
                                             <tbody>
                                                 {{range .DbGroupStatis}}
-                                                <tr id="group_{{ .group_id}}">
+                                                <tr id="group_{{ .id}}">
                                                     <td>
-                                                        {{ .group_id }}
+                                                        {{ .id }}
                                                     </td>
                                                     <td id="group_name">
                                                         {{ .group_name}}
@@ -62,11 +62,11 @@
                                                     </td>
                                                     <td>
                                                         {{ if eq .db_num "0" }}
-                                                         <a class="delete-group" data-gid={{ .group_id}} href="javascript:;">删除</a>
+                                                         <a class="delete-group" data-gid={{ .id}} href="javascript:;">删除</a>
                                                          {{end}}
-                                                        <a class="edit-group" data-gid={{ .group_id}} data-gname={{.group_name}} href="javascript:;">编辑</a>
+                                                        <a class="edit-group" data-gid={{ .id}} data-gname={{.group_name}} href="javascript:;">编辑</a>
                                                          
-                                                       <a class="btn-group-save" style="display:none" data-gid={{ .group_id}} href="javascript:;">保存</a> 
+                                                       <a class="btn-group-save" style="display:none" data-gid={{ .id}} href="javascript:;">保存</a> 
                                                     </td>
                                                 </tr>
                                                 {{end}}

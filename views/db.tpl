@@ -44,7 +44,7 @@
                                         <p><label class="col-sm-2 control-label">分组：</label>{{.Conn.group_name}}</p>
                                         <p><label class="col-sm-2 control-label">表数：</label>{{.Tables|len}}</p>
                                         <p>
-                                        <a href="./editdb?id={{.Conn.db_id}}"><button class="btn btn-sm btn-info no-radius" type="button">编辑</button></a></p>
+                                        <a href="./editdb?id={{.Conn.id}}"><button class="btn btn-sm btn-info no-radius" type="button">编辑</button></a></p>
                                     </div>              
 
                                     <h3 class="header smaller lighter purple">

@@ -6,12 +6,12 @@ import (
 )
 
 type DbGroup struct {
-	Id        int `orm:pk;column(group_id)`
+	Id        int
 	GroupName string
 }
 
 type DbConn struct {
-	Id		 	int `orm:pk;column(db_id)`
+	Id		 	int
 	DbTitle		string
 	DbGroup	  	int
 	DbName    	string
@@ -62,7 +62,7 @@ func AddGroup(groupName string ) (gid int64, err error) {
 //编辑数据库分组
 func UpdateGroup(Id int,groupName string ) (gid int64, err error) {
 	o := orm.NewOrm()
-	res, err := o.Raw(`update db_group set group_name = ? where group_id = ?`, groupName,Id).Exec()
+	res, err := o.Raw(`update db_group set group_name = ? where id = ?`, groupName,Id).Exec()
 	if err != nil {
 		logs.Critical(err)
 	}
@@ -72,7 +72,7 @@ func UpdateGroup(Id int,groupName string ) (gid int64, err error) {
 
 func DeleteGroup(Id int) (gid int64, err error) {
 	o := orm.NewOrm()
-	res, err := o.Raw(`delete from db_group where group_id = ?`,Id).Exec()
+	res, err := o.Raw(`delete from db_group where id = ?`,Id).Exec()
 	if err != nil {
 		logs.Critical(err)
 	}
@@ -83,7 +83,7 @@ func DeleteGroup(Id int) (gid int64, err error) {
 //根据分组id获取分组下数据库连接实例
 func GetDbByGid(gid int) (db []orm.Params, err error) {
 	o := orm.NewOrm()
-	_, err = o.Raw(`select db_id,db_title 
+	_, err = o.Raw(`select id,db_title 
 					from db_conn  
 					where db_group	=	?
 					`, gid).Values(&db)
@@ -115,7 +115,7 @@ func UpdateDbConn(conn DbConn) (id int64,err error){
 //根据id获取一个数据连接信息
 func GetDbConnById(id int)(conn []orm.Params,err error){
 	o := orm.NewOrm()
-	_, err = o.Raw(`select db_conn.*,db_group.group_name from db_conn left join db_group on db_conn.db_group = db_group.group_id where db_id = ?`, id).Values(&conn)
+	_, err = o.Raw(`select db_conn.*,db_group.group_name from db_conn left join db_group on db_conn.db_group = db_group.id where db_conn.id = ?`, id).Values(&conn)
 	if err != nil {
 		logs.Critical(err)
 	}
